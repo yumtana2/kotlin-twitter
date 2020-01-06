@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello, [[${name}]]</title>
+</head>
+<body>
+<p>tweet is, [${tweets}]</p>
+
+<form th:action="@{/tweets}" th:method="post">
+    <div class="form-group">
+        <label class="control-label">ツイート</label>
+        <input class="form-control" type="text" name="new_tweet" />
+    </div>
+    <button class="btn btn-default" type="submit">登録</button>
+</form>
+</body>
+</html>

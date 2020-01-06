@@ -19,7 +19,7 @@ var tweetList = mutableListOf("aaa", "bbb", "ccc")
 
     // 登録
     @PostMapping
-    fun create(@ModelAttribute new_tweet: String, model: Model): String {
+    fun create(@RequestParam new_tweet: String, model: Model): String {
         tweetList.add(new_tweet)
         model.addAttribute("tweets", tweetList)
         return "index"

@@ -5,12 +5,12 @@
     <title>Hello, [[${name}]]</title>
 </head>
 <body>
-<p>tweet is, [${tweets}]</p>
+<p>tweet is, [[${tweets}]]</p>
 
 <form th:action="@{/tweets}" th:method="post">
     <div class="form-group">
         <label class="control-label">ツイート</label>
-        <input class="form-control" type="text" name="new_tweet" />
+        <input class="form-control" type="text" name="new_tweet" id="new_tweet"/>
     </div>
     <button class="btn btn-default" type="submit">登録</button>
 </form>

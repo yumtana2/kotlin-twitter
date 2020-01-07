@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/tweets") // ①
 class DisplayController {
 
-var tweetList = mutableListOf("aaa", "bbb", "ccc")
+    // map<id, value>
+var tweetList = mutableMapOf(1 to "aaa", 2 to "bbb", 3 to "ccc")
 
     // 一覧表示
     @RequestMapping(value = [""], method = [RequestMethod.GET])
@@ -20,8 +21,15 @@ var tweetList = mutableListOf("aaa", "bbb", "ccc")
     // 登録
     @PostMapping
     fun create(@RequestParam new_tweet: String, model: Model): String {
-        tweetList.add(new_tweet)
+        tweetList.putIfAbsent(tweetList.size + 1, new_tweet)
         model.addAttribute("tweets", tweetList)
         return "index"
+    }
+
+    // 詳細
+    @GetMapping("{id}")
+    fun detail(@PathVariable id: Int, model: Model): String {
+        model.addAttribute("tweet", tweetList[id])
+        return "Detail"
     }
 }

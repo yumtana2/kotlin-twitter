@@ -7,6 +7,14 @@
 <body>
 <p>tweet is, [[${tweets}]]</p>
 
+<form th:action="@{/tweets/delete}" th:method="post">
+    <div class="form-group">
+        <label class="control-label">削除</label>
+        <input class="form-control" type="number" name="tweet_id" id="tweet_id"/>
+    </div>
+    <button class="btn btn-default" type="submit">削除</button>
+</form>
+
 <form th:action="@{/tweets}" th:method="post">
     <div class="form-group">
         <label class="control-label">ツイート</label>

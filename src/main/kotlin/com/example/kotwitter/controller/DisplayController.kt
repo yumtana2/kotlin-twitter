@@ -32,4 +32,13 @@ var tweetList = mutableMapOf(1 to "aaa", 2 to "bbb", 3 to "ccc")
         model.addAttribute("tweet", tweetList[id])
         return "Detail"
     }
+
+    // 削除
+    // TODO: ethod=postからdeleteに変更したい
+    @PostMapping("/delete")
+    fun delete(@RequestParam tweet_id: Int, model: Model): String {
+        tweetList.remove(tweet_id)
+        model.addAttribute("tweets", tweetList)
+        return "index"
+    }
 }

@@ -1,2 +1,3 @@
 # kotlin-twitter
-kotlinでCRUD練習するためにtwitter作成
+bootrun後に下記にアクセスしてください
+`http://localhost:8080/tweets/`

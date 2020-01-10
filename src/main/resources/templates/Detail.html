@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Detail</title>
 </head>
 <body>
 <p>tweet detail is, [[${tweet}]]</p>
+<form th:action="@{/tweets/update/{id}(id=*{id})}" th:method="post">
+    <div class="form-group">
+        <label class="control-label">編集</label>
+        <input class="form-control" type="text" name="update_tweet" id="update_tweet"/>
+    </div>
+    <button class="btn btn-default" type="submit">編集</button>
+</form>
 </body>
 </html>

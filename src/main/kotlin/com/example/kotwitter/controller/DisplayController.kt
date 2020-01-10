@@ -33,9 +33,18 @@ var tweetList = mutableMapOf(1 to "aaa", 2 to "bbb", 3 to "ccc")
         return "Detail"
     }
 
+    // 更新
+    // TODO: method=postからputに変更したい
+    @PostMapping("update/{id}")
+    fun update(@PathVariable id: Int, @RequestParam update_tweet: String, model: Model): String {
+        tweetList[id] = update_tweet
+        model.addAttribute("tweets", tweetList)
+        return "redirect:/tweets/{id}"
+    }
+
     // 削除
-    // TODO: ethod=postからdeleteに変更したい
-    @PostMapping("/delete")
+    // TODO: method=postからdeleteに変更したい
+    @PostMapping("delete")
     fun delete(@RequestParam tweet_id: Int, model: Model): String {
         tweetList.remove(tweet_id)
         model.addAttribute("tweets", tweetList)
